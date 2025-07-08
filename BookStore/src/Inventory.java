@@ -19,9 +19,12 @@ public class Inventory {
         }
         System.out.println("Book Added Successfully");
     }
+    public int getQuantity(String ISBN) {
+        return Quantities.get(ISBN);
+    }
 
     public void DecrementBook(Book book, int decQuantitiy) {
-        if (decQuantitiy < 1) {
+        if (decQuantitiy < 0) {
             throw new IllegalArgumentException("Quantity must be greater than 0.");
         }
         if (books.containsKey(book.getISBN())) {
@@ -29,7 +32,7 @@ public class Inventory {
             if (Quantities.get(ISBN) >= decQuantitiy) {
                 Quantities.put(ISBN, Quantities.get(ISBN) - decQuantitiy);
             } else {
-                throw new IllegalArgumentException("New Quantity cannnot be less than 0.");
+                throw new IllegalArgumentException("New Quantity cannot be less than 0.");
             }
         } else {
             throw new IllegalArgumentException("Book does not exist.");
