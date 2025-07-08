@@ -19,6 +19,10 @@ public class BookStore {
             throw new NoSuchElementException("Book does not exist");
         }
         Book book = inventory.books.get(ISBN);
+        if (book instanceof DemoBook) {
+            book.Deliver(Quantity, Email, Address);
+            return 0;
+        }
         double PaidAmount = book.Price * Quantity;
         if (book instanceof PaperBook paperBook) {
             if (paperBook.AvailableQuantity < Quantity) {
