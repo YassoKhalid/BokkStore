@@ -109,4 +109,10 @@ store.BuyBook("P5", 1, "eve@example.com", "202 Birch St");
 
 ## Buying books with negative Quantities
 ![negative quantity](Images/pic5.png)
+
+## Trying DemoBooks
+![trydemo](Images/pic7.png)
+
+## Buying DemoBooks
+![butydemo](Images/pic6.png)
 ---
