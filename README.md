@@ -50,11 +50,11 @@ java -cp out BookStore.QuantumBookstoreFullTest
 
 ## Test Cases
 
-1. [Adding and Buying Books](#addingBuying)
+1. [Adding and Buying Books](#addingbuying)
 2. [Buying a book and exceeds avaialble Quantity](#exceeds)
 3. [Buying a book that doesn't exist](#exist)
    
-### 1. Adding and Buying Books <a name="addingBuying"></a>
+### 1. Adding and Buying Books <a name="addingbuying"></a>
 
 ```java
 // This is an example of the main success scenario, The user Wants all books in the stock
