@@ -15,7 +15,8 @@ A simple Java‑based online bookstore demonstrating core domain concepts:
 1. [Assumptions](#assumptions)  
 2. [Getting Started](#getting-started)  
 3. [Test Cases](#test-cases)  
-4. [Extending & Testing](#extending--testing)  
+4. [Extending & Testing](#extending--testing)
+5. [screenshots](#screenshots)
 
 ---
 
@@ -87,4 +88,25 @@ store.BuyBook("P5", 1, "eve@example.com", "202 Birch St");
 * **Unit Tests**: Add JUnit 5 tests under `src/test/java` to cover all methods.
 * **Build Tool**: Convert to Maven/Gradle for dependency & test management.
 * **CI**: Add GitHub Actions for automated builds & tests
-  
+
+
+---
+
+## Screenshots
+
+### Main Success scenario
+![main success scenario](Images/pic1.png)
+
+
+### Book Quantity Excceds
+![quantity exceeds](Images/pic2.png)
+
+### No such book
+![no book](Images/pic3.png)
+
+### Adding negative Quantity
+![negative quantity](Images/pic4.png)
+
+## Buying books with negative Quantities
+![negative quantity](Images/pic5.png)
+---
