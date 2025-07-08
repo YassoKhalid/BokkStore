@@ -26,7 +26,7 @@ public class Inventory {
         }
         if (books.containsKey(book.getISBN())) {
             String ISBN = book.getISBN();
-            if (Quantities.get(ISBN) > decQuantitiy) {
+            if (Quantities.get(ISBN) >= decQuantitiy) {
                 Quantities.put(ISBN, Quantities.get(ISBN) - decQuantitiy);
             } else {
                 throw new IllegalArgumentException("New Quantity cannnot be less than 0.");
