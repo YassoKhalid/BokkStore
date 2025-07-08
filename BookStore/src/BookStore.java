@@ -1,14 +1,9 @@
 import java.util.NoSuchElementException;
 
 public class BookStore {
-    private Inventory inventory = new Inventory();
+    private final Inventory inventory = new Inventory();
 
     public void AddBook(Book book, int Quantity) {
-        if (book instanceof PaperBook pb) {
-            if (Quantity > pb.AvailableQuantity) {
-                throw new NoSuchElementException("You can't add more than " + Quantity + " PaperBooks.");
-            }
-        }
         inventory.AddBook(book, Quantity);
     }
 
@@ -17,6 +12,9 @@ public class BookStore {
     }
 
     public double BuyBook(String ISBN, int Quantity, String Email, String Address) {
+        if (Quantity < 1) {
+            throw new IllegalArgumentException("Quantity must be greater than 0.");
+        }
         if (!inventory.FindBook(ISBN)) {
             throw new NoSuchElementException("Book does not exist");
         }
@@ -27,7 +25,7 @@ public class BookStore {
                 throw new IllegalArgumentException("Paper Book Quantity Exceeded");
             }
             PaidAmount += paperBook.ShippingCost * Quantity;
-            inventory.AddBook(book, -Quantity);
+            inventory.DecrementBook(book, Quantity);
         }
         book.Deliver(Quantity, Email, Address);
         return PaidAmount;

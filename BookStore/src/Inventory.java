@@ -8,17 +8,38 @@ public class Inventory {
     Map<String, Integer> Quantities = new HashMap<>();
 
     public void AddBook(Book book, int quantity) {
+        if (quantity < 1) {
+            throw new IllegalArgumentException("Quantity must be greater than 0.");
+        }
         if (books.containsKey(book.getISBN())) {
             Quantities.compute(book.getISBN(), (k, OldQuantity) -> quantity + OldQuantity);
-        }
-        if (!books.containsKey(book.getISBN())) {
+        } else {
             Quantities.put(book.getISBN(), quantity);
             books.put(book.getISBN(), book);
         }
         System.out.println("Book Added Successfully");
     }
 
+    public void DecrementBook(Book book, int decQuantitiy) {
+        if (decQuantitiy < 1) {
+            throw new IllegalArgumentException("Quantity must be greater than 0.");
+        }
+        if (books.containsKey(book.getISBN())) {
+            String ISBN = book.getISBN();
+            if (Quantities.get(ISBN) > decQuantitiy) {
+                Quantities.put(ISBN, Quantities.get(ISBN) - decQuantitiy);
+            } else {
+                throw new IllegalArgumentException("New Quantity cannnot be less than 0.");
+            }
+        } else {
+            throw new IllegalArgumentException("Book does not exist.");
+        }
+    }
+
     public void RemoveBook(String ISBN) {
+        if (!books.containsKey(ISBN)) {
+            throw new IllegalArgumentException("Book Not Found");
+        }
         books.remove(ISBN);
         Quantities.remove(ISBN);
     }
